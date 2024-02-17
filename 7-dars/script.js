@@ -32,16 +32,26 @@
 // 	console.log(' ' + nom.repeat(i))
 // }
 
-
-
-
-
 // let son = +prompt("Yulduzcha sonini kiriting");
-// let y = "*" 
+// let y = "*"
 // for(let i = 1; i <= son; i++){
 // 	console.log(y.repeat(i));
 // }
+ 
 
 
 
 
+
+//  juft toq
+// let son = +prompt('Son qiymat kiriting !')
+
+// for (let i = 0; i <= son; i++) {
+// 	if (i === 0) {
+// 		console.log(i + ' bu nol')
+// 	} else if (i % 2 == 0) {
+// 		console.log(i + ' juft son')
+// 	} else {
+// 		console.log(i + ' toq son')
+// 	}
+// }
