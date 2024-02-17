@@ -10,8 +10,9 @@
 // 0 + i
 
 // 2 - savol
-let sum = 1
-for (let i = 0; i <= 10; i++) {
-	sum = sum + i
-	console.log(sum)
+let sum = +prompt('son kiriting ! ')
+let nom = prompt('matn kiriting ! ')
+for (let i = 0; i <= sum; i++) {
+	// sum = sum + i
+	console.log(i + ' ' + nom.repeat + `\n`)
 }

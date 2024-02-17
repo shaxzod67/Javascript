@@ -155,3 +155,24 @@
 // else {
 // 	console.log("siz ikki yoki uch qiymatni ham bir xil qilib quydez");
 // }
+
+
+
+
+
+//  orta son topish
+
+// let a = +prompt("a son");
+// let b = +prompt("b son");
+// let c = +prompt("c son");
+
+
+// if( a < b && a > c ){
+// 	console.log( a + " a bu orta qiymat");
+// }
+// else if( b > a && b < c){
+// 	console.log(b + " b bu orta qiymat");
+// }
+// else if( c > a && c < b){
+// 	console.log(c + " c bu orta qiymat");
+// }
