@@ -56,31 +56,31 @@
 // }
 // button.onclick = hisob
 
-let input = document.getElementById('input')
-let inputNom = document.getElementById('inputNom')
-let span = document.getElementById('span')
-let button = document.getElementById('button')
+// let input = document.getElementById('input')
+// let inputNom = document.getElementById('inputNom')
+// let span = document.getElementById('span')
+// let button = document.getElementById('button')
 
-function hisob() {
-	let input = document.getElementById('input').value
-	let inputNom = document.getElementById('inputNom').value
-	let a = ' '
-	if (input < 70) {
-		span.innerHTML = " Sizda jarimalar yo'q"
-	}
-	else if (input > 70 && input <= 80) {
-		span.innerHTML = "Siz " + input + " km/s tezlik bilan " + (inputNom * 1) + " ming so'm jarimaga tushdingiz"
-	}
-	else if(input > 80 && input <=90){
-		span.innerHTML = "Siz " + input + " km/s tezlik bilan " + (inputNom * 2) + " ming so'm jarimaga tushdingiz"
-	}
-	else if ( input > 90 && input <= 110){
-		span.innerHTML = "Siz " + input + " km/s tezlik bilan " + (inputNom * 5) + " ming so'm jarimaga tushdingiz"
-	}
-	else {
-		span.innerHTML = "Siz " + input + " km/s tezlik bilan " + (inputNom * 10) + " ming so'm jarimaga tushdingiz"
-	}
-	// span.innerHTML = son
-}
-button.onclick = hisob
+// function hisob() {
+// 	let input = document.getElementById('input').value
+// 	let inputNom = document.getElementById('inputNom').value
+// 	let a = ' '
+// 	if (input < 70) {
+// 		span.innerHTML = " Sizda jarimalar yo'q"
+// 	}
+// 	else if (input > 70 && input <= 80) {
+// 		span.innerHTML = "Siz " + input + " km/s tezlik bilan " + (inputNom * 1) + " ming so'm jarimaga tushdingiz"
+// 	}
+// 	else if(input > 80 && input <=90){
+// 		span.innerHTML = "Siz " + input + " km/s tezlik bilan " + (inputNom * 2) + " ming so'm jarimaga tushdingiz"
+// 	}
+// 	else if ( input > 90 && input <= 110){
+// 		span.innerHTML = "Siz " + input + " km/s tezlik bilan " + (inputNom * 5) + " ming so'm jarimaga tushdingiz"
+// 	}
+// 	else {
+// 		span.innerHTML = "Siz " + input + " km/s tezlik bilan " + (inputNom * 10) + " ming so'm jarimaga tushdingiz"
+// 	}
+// 	// span.innerHTML = son
+// }
+// button.onclick = hisob
 
