@@ -26,8 +26,8 @@
 
 // let a = +prompt("yosh")
 
-// function hisob (qiymat){
-//     if( a > 12){
+// function hisob (age){
+//     if( age > 12){
 //         return console.log("Siz tzizmga kirdingiz");
 //     } 
 //     else{
@@ -48,7 +48,7 @@
 // function minus( a ,b){
 //     return a - b;
 // }
-// function kop( a ,b){
+// function kop(a ,b){
 //     return a * b;
 // }
 // function bul( a ,b){
