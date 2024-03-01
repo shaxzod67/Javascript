@@ -39,3 +39,40 @@
 //      i += (a);
 //      console.log(i);
 // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////// Vazifa ////////////////////////////
+
+// let ver = {
+//     ism :'Shahzod',
+//     familya : 'Olimjonov',
+//     yosh : 20,
+
+
+
+//     get:{
+//         ism: 'Jasur',
+//         familya : 'Davronov',
+//         yosh : 21,
+//     }
+// }
+
+
+
+
+
+
+
+// console.log(ver.get);
