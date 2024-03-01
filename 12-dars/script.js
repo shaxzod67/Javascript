@@ -55,24 +55,22 @@
 
 ///////////////////////////// Vazifa ////////////////////////////
 
-// let ver = {
-//     ism :'Shahzod',
-//     familya : 'Olimjonov',
-//     yosh : 20,
+let pp = document.querySelector('#qiymat');
+let button = document.querySelector('#button');
 
 
-
-//     get:{
-//         ism: 'Jasur',
-//         familya : 'Davronov',
-//         yosh : 21,
-//     }
-// }
+function hisob() {
+    let bir = document.querySelector('#bir').value
+    let ikki = document.querySelector('#ikki').value
+    let uch = document.querySelector('#uch').value
 
 
+    let ver = {
+        ism: bir,
+        familya: ikki,
+        yosh: uch,
+ 
+}
+console.log(ver);
+}
 
-
-
-
-
-// console.log(ver.get);
