@@ -83,7 +83,7 @@ plus.onclick = function () {
         p.innerHTML = " Knobka bosiloradi pulichi ??."
     }
     else {
-        p.innerHTML = " O'ziz bilasiz !."
+        p.innerHTML = " O'ziz bilasiz !. " + input.value + " x"
     }
     pp.innerHTML = input.value * 300000 + " $";
 }
@@ -100,6 +100,7 @@ minus.onclick = function () {
     }
 }
 clear.onclick = function () {
+    pp.innerHTML = "0 $"
     return input.value = 0;
 }
 
