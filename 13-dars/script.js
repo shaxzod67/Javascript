@@ -34,9 +34,40 @@
 
 
 
+// let p = document.querySelector('#p');
+// let input = document.querySelector('#input');
+// let plus = document.querySelector('#plus');
+// let plus2 = document.querySelector('#plus2');
+// let minus = document.querySelector('#minus');
+// let clear = document.querySelector('#clear');
+
+
+// let a = 0;
+// plus.onclick = function(){
+//    return ++input.value
+// }
+// plus2.onclick = function(){
+//     input.value = ++a + a;
+// }
+// minus.onclick = function(){
+//      if (input.value < 1 ){
+//         return  input.value;
+//     }
+//     else{
+//         return --input.value;
+//     }
+
+// }
+
+// clear.onclick = function(){
+//     a = 0
+//     input.value= a;
+// }
+
+
 let p = document.querySelector('#p');
+let pp = document.querySelector('#pp');
 let input = document.querySelector('#input');
-let input1 = document.querySelector('#input1');
 let plus = document.querySelector('#plus');
 let plus2 = document.querySelector('#plus2');
 let minus = document.querySelector('#minus');
@@ -44,26 +75,34 @@ let clear = document.querySelector('#clear');
 
 
 let a = 0;
-plus.onclick = function(){
-   return ++input.value
-}
-plus2.onclick = function(){
-    input.value = ++a + a;
-}
-minus.onclick = function(){
-     if (input.value < 1 ){
-        return  input.value;
+plus.onclick = function () {
+    if (++input.value > 2 && input.value < 5) {
+        p.innerHTML = "O'ylab koring qimmatga tushasiz."
     }
-    else{
-        return --input.value;
+    else if (input.value > 4 && input.value < 10) {
+        p.innerHTML = " Knobka bosiloradi pulichi ??."
     }
-   
+    else {
+        p.innerHTML = " O'ziz bilasiz !."
+    }
+    pp.innerHTML = input.value * 300000 + " $";
+}
+plus2.onclick = function () {
+    ++input.value + ++input.value;
+    pp.innerHTML = input.value * 300000 + " $";
+
+}
+minus.onclick = function () {
+    if (input.value > 0) {
+        pp.innerHTML = (300000 * input.value)  - 300000  + " $";
+        --input.value;
+
+    }
+}
+clear.onclick = function () {
+    return input.value = 0;
 }
 
-clear.onclick = function(){
-    a = 0
-    input.value= a;
-}
 
 
 

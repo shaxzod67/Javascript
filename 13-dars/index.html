@@ -6,23 +6,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #p{
-            font-size: 20px;
+        body {
+            background-color: gray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-image: url(https://avatars.mds.yandex.net/i?id=023dfe5affe3e92a6eaaa08aaccce1503e0af44e-5234751-images-thumbs&n=13);
+        }
+
+        .box {
+            width: 400px;
+            height: 500px;
+            background: transparent;
+            backdrop-filter: blur(15px);
+            border-radius: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 10px;
+            border: 1px solid red;
+        }
+        img{
+            border-radius: 8px;
+        }
+        #input{
+            width: 80%;
+            height: 40px;
+            border: none;
+            font-size: 22px;
+            box-sizing: border-box;
+            color: green;
+            font-weight: bold;
+            padding: 10px;
+        }
+        #input:focus{
+            outline-style: none;
+        }
+        #clear{
+            width: 15%;
+            height: 41px;
+            border: none;
+            font-size: 24px;
+            color: white;
+            background-color: red;
+        }
+        #plus{
+            width: 65%;
+            height: 40px;
+            border: none;
+            font-weight: bold;
             color: red;
+            font-size: 25px;
+        }
+        #plus2{
+            width: 15%;
+            height: 41px;
+            border: none;
+            font-size: 24px;
+            color: white;
+            background-color: green;
+        }
+        #minus{
+            width: 15%;
+            height: 41px;
+            border: none;
+            color: white;
+            font-size: 24px;
+            background: red;
+        }
+        #pp{
+            width: 90%;
+            height: auto;
+            margin: auto;
+            font-size: 24px;
+            font-weight: bold;
+            color: red;
+            text-align: end;
+        }
+        #p{
+            width: 90%;
+            height: auto;
+            margin: auto;
+            font-size: 18px;
+            color: gray;
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
-   <input type="number" name="" id="input">
-      <button id="plus">+</button>
-      <button id="plus2">+2</button>
-      <button id="minus">-</button>
-      <button id="clear">Clear</button>
-      <input type="text" name="" id="input1">
+    <div class="box">
+        <img src="https://avatars.mds.yandex.net/i?id=5b61115c45a32a073777cf24b77b25057e1a45fb-8497298-images-thumbs&n=13"
+            alt="Gelik image">
+            <p id="pp">0 $</p>
+        <input type="number" name="" id="input">
+        <button id="clear">X</button>
+        <button id="plus">+</button>
+        <button id="minus">--</button>
+        <button id="plus2">+2</button>
+        <p id="p">!!!</p>
+    </div>
 
-   
+
 
     <script src="./script.js"></script>
 </body>
+
 </html>
