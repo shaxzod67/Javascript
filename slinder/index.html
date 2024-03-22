@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slinder img {
+            display: none;
+            transition: 2s;
+        }
+
+        .slinder img:first-child {
+            display: block;
+        }
+
+        #bar2 {
+            display: none;
+        }
+
+        @media screen and (max-width: 800px) {
+            #bar {
+            display: none;
+        }
+            #bar2 {
+            display: none;
+        }
+        }
+    </style>
+</head>
+
+<head>
+    <nav>
+        <ul id="bar">
+            <li><a href="">aaa</a></li>
+            <li><a href="">ss</a></li>
+            <li><a href="">dd</a></li>
+        </ul>
+
+        <ul id="bar2">
+            <li><a href="">aa2</a></li>
+            <li><a href="">ss3</a></li>
+            <li><a href="">dd3</a></li>
+        </ul>
+    </nav>
+</head>
+
+<body>
+
+
+    <div class="box">
+        <div class="slinder">
+            <img src="https://avatars.mds.yandex.net/i?id=8199f1729f4dcbb4dfaf254dc31550fa1fbe3c99-9106703-images-thumbs&n=13"
+                alt="">
+            <img src="https://avatars.mds.yandex.net/i?id=709a4a0080e366ff83f69fce44f922ed-5240374-images-thumbs&n=13"
+                alt="">
+            <img src="https://avatars.mds.yandex.net/i?id=f66234c5bad228595834994ef16e7966a51a42c5-9067611-images-thumbs&n=13"
+                alt="">
+            <img src="https://avatars.mds.yandex.net/i?id=6e9a965681a49a2540d2f8c329dd879cdebd2baf-9234614-images-thumbs&n=13"
+                alt="">
+            <img src="https://avatars.mds.yandex.net/i?id=84f8fe978f4f67711485669351c985c6006c44d9-9671619-images-thumbs&n=13"
+                alt="">
+        </div>
+
+        <div class="btn">
+            <button id="or">Orqaga</button>
+            <button id="ol">Oldinga</button>
+            <button id="barbtn">Bar</button>
+        </div>
+    </div>
+
+    <script src="./scrpit.js"></script>
+</body>
+
+</html>
