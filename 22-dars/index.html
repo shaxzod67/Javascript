@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body>
+
+<table class="jadval">
+        <tr>
+            <th>№</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Ball</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </table>
+    <table id="data" class="jadval">
+
+    </table>
+
+    <div class="edit__modal" id="editModal" style="display: none">
+        <div class="modal__content">
+            <div class="modal__close">
+                <i class="fa fa-times"></i>
+            </div>
+            <section class="edit__todo__form">
+                <form>
+                    <input type="text" class="edit__todo__input" id="editInput"/>
+                    <button type="submit" class="button__edit__todo">Save</button>
+                </form>
+            </section>
+        </div>
+    </div>
+    <h1>Add Data</h1>
+
+    <form action="" id="form">
+        <input type="text" id="name">
+        <input type="date" id="date">
+        <input type="number" id="ball">
+
+        <button id="btn" type="submit">yuborish</button>
+    </form>
+
+    <script src="./script.js"></script>
+</body>
+</html>
