@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-   <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
-<body>
 
-<table class="jadval">
+<body>
+    <h1>Add Data</h1>
+    <p id="pp">Malumotni kiriting</p>
+    <form action="" id="form">
+        <input type="text" id="name">
+        <input type="date" id="date">
+        <input type="number" id="ball">
+
+        <button id="btn" type="submit">yuborish</button>
+    </form>
+    <br> <br>
+    <table class="jadval">
         <tr>
             <th>№</th>
             <th>Name</th>
@@ -30,22 +42,13 @@
             </div>
             <section class="edit__todo__form">
                 <form>
-                    <input type="text" class="edit__todo__input" id="editInput"/>
+                    <input type="text" class="edit__todo__input" id="editInput" />
                     <button type="submit" class="button__edit__todo">Save</button>
                 </form>
             </section>
         </div>
     </div>
-    <h1>Add Data</h1>
-
-    <form action="" id="form">
-        <input type="text" id="name">
-        <input type="date" id="date">
-        <input type="number" id="ball">
-
-        <button id="btn" type="submit">yuborish</button>
-    </form>
-
     <script src="./script.js"></script>
 </body>
+
 </html>
