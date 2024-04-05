@@ -54,60 +54,139 @@
 
 
 
+// let pp = document.querySelector('#pp');
+// let name = document.querySelector('#name');
+// let date = document.querySelector('#date');
+// let ball = document.querySelector('#ball');
+// let btn = document.querySelector('#btn');
+// let form = document.querySelector('#form');
+// let data = document.querySelector('#data');
+
+
+// const mall = [];
+// form.addEventListener('submit', function (qayt) {
+//     qayt.preventDefault();
+//     tek();
+//     console.log("hello");
+// });
+
+// function tek() {
+//     if (name.value == "" || date.value == "" || ball.value == "") {
+//         pp.style.color = "red";
+//         return pp.innerHTML = "Malumotni toliq kiriting "
+//     }
+//     else {
+//         pp.style.color = "green";
+//         pp.innerHTML = "Malumot kiritildi";
+//     }
+//     elon();
+// }
+// function elon() {
+//     mall.push(
+//         {
+//             name: name.value,
+//             date: date.value,
+//             ball: ball.value,
+//         }
+//     )
+//     oqish();
+// }
+
+// function oqish() {
+//     data.innerHTML = '';
+//     mall.map(function (value, index) {
+//         data.innerHTML += `
+//      <td>${index + 1}</td>
+//      <td>${value.name}</td>
+//      <td>${value.date}</td>
+//      <td>${value.ball}</td>
+//      <td><i class='bx bxs-edit'></i></td>
+//      <td><i class='bx bxs-trash'></i></td>
+//     `
+//     })
+//     document.getElementById("name").value = "";
+//     document.getElementById("date").value = "";
+//     document.getElementById("ball").value = "";
+
+// }
+
+
+
+
+
+
+
+
+
+
 let pp = document.querySelector('#pp');
 let name = document.querySelector('#name');
 let date = document.querySelector('#date');
 let ball = document.querySelector('#ball');
-let btn = document.querySelector('#btn');
 let form = document.querySelector('#form');
+let btn = document.querySelector('#btn');
 let data = document.querySelector('#data');
 
-
 const mall = [];
-form.addEventListener('submit', function (qayt) {
-    qayt.preventDefault();
-    tek();
-    console.log("hello");
+form.addEventListener('submit', function (saqlash) {
+    saqlash.preventDefault();
+    tekshirish();
 });
 
-function tek() {
-    if (name.value == "" || date.value == "" || ball.value == "") {
-        pp.style.color = "red";
-        return pp.innerHTML = "Malumotni toliq kiriting "
+function tekshirish() {
+    if (name.value == '' || date.value == '' || ball.value == '') {
+        pp.style.color = 'red';
+        return pp.innerHTML = "Malumotni toldiring"
+    } else {
+        pp.style.color = 'green';
+        pp.innerHTML = "Malumot  yuborildi"
     }
-    else {
-        pp.style.color = "green";
-        pp.innerHTML = "Malumot kiritildi";
-    }
-    elon();
+    qabulQilish();
 }
-function elon() {
+function idTopish(mall){
+   if(!mall.length){
+    return 1;
+   }else{
+    return mall[mall.length - 1].iD + 1;
+   }
+}
+function qabulQilish() {
     mall.push(
         {
-            name: name.value,
-            date: date.value,
-            ball: ball.value,
+            iD:idTopish(mall),
+            ism: name.value,
+            sana: date.value,
+            baho: ball.value,
         }
+       
     )
-    oqish();
+    localStorage.setItem('bir' , JSON.stringify(mall));
+    console.log(mall);
+    korsatish();
 }
 
-function oqish() {
-    data.innerHTML = '';
+function ochirish(iD){
+    let ocr = mall.findIndex( function(topId){
+        return topId.id === iD;
+    })
+    mall.splice(ocr,1);
+    korsatish();
+}
+
+
+function korsatish() {
+    data.innerHTML = "";
     mall.map(function (value, index) {
         data.innerHTML += `
-     <td>${index + 1}</td>
-     <td>${value.name}</td>
-     <td>${value.date}</td>
-     <td>${value.ball}</td>
-     <td><i class='bx bxs-edit'></i></td>
-     <td><i class='bx bxs-trash'></i></td>
-    `
+        <td>${index + 1}</td>
+        <td>${value.ism}</td>
+        <td>${value.sana}</td>
+        <td>${value.baho}</td>
+        <td><i class='bx bxs-edit'></i></td>
+        <td><i onclick = ochirish(${value.id}) class='bx bxs-trash'></i></td>
+        `
     })
     document.getElementById("name").value = "";
     document.getElementById("date").value = "";
     document.getElementById("ball").value = "";
-
 }
-
-
