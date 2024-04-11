@@ -119,6 +119,81 @@
 
 
 
+// let pp = document.querySelector('#pp');
+// let name = document.querySelector('#name');
+// let date = document.querySelector('#date');
+// let ball = document.querySelector('#ball');
+// let form = document.querySelector('#form');
+// let btn = document.querySelector('#btn');
+// let data = document.querySelector('#data');
+
+// const mall = [];
+// form.addEventListener('submit', function (saqlash) {
+//     saqlash.preventDefault();
+//     tekshirish();
+// });
+
+// function tekshirish() {
+//     if (name.value == '' || date.value == '' || ball.value == '') {
+//         pp.style.color = 'red';
+//         return pp.innerHTML = "Malumotni toldiring"
+//     } else {
+//         pp.style.color = 'green';
+//         pp.innerHTML = "Malumot  yuborildi"
+//     }
+//     qabulQilish();
+// }
+// function idTopish(mall){
+//    if(!mall.length){
+//     return 1;
+//    }else{
+//     return mall[mall.length - 1].iD + 1;
+//    }
+// }
+// function qabulQilish() {
+//     mall.push(
+//         {
+//             iD:idTopish(mall),
+//             ism: name.value,
+//             sana: date.value,
+//             baho: ball.value,
+//         }
+
+//     )
+//     localStorage.setItem('bir' , JSON.stringify(mall));
+//     console.log(mall);
+//     korsatish();
+// }
+
+// function ochirish(iD){
+//     let ocr = mall.findIndex( function(topId){
+//         return topId.id === iD;
+//     })
+//     mall.splice(ocr,1);
+//     korsatish();
+// }
+
+
+// function korsatish() {
+//     data.innerHTML = "";
+//     mall.map(function (value, index) {
+//         data.innerHTML += `
+//         <td>${index + 1}</td>
+//         <td>${value.ism}</td>
+//         <td>${value.sana}</td>
+//         <td>${value.baho}</td>
+//         <td><i class='bx bxs-edit'></i></td>
+//         <td><i onclick = ochirish(${value.id}) class='bx bxs-trash'></i></td>
+//         `
+//     })
+//     document.getElementById("name").value = "";
+//     document.getElementById("date").value = "";
+//     document.getElementById("ball").value = "";
+// }
+
+
+
+
 let pp = document.querySelector('#pp');
 let name = document.querySelector('#name');
 let date = document.querySelector('#date');
@@ -127,65 +202,71 @@ let form = document.querySelector('#form');
 let btn = document.querySelector('#btn');
 let data = document.querySelector('#data');
 
-const mall = [];
-form.addEventListener('submit', function (saqlash) {
-    saqlash.preventDefault();
+
+let backend = [];
+form.addEventListener('submit', function (qaytarish) {
+    qaytarish.preventDefault();
     tekshirish();
 });
-
 function tekshirish() {
     if (name.value == '' || date.value == '' || ball.value == '') {
         pp.style.color = 'red';
-        return pp.innerHTML = "Malumotni toldiring"
-    } else {
-        pp.style.color = 'green';
-        pp.innerHTML = "Malumot  yuborildi"
+        pp.textContent = 'Malumotni toldiring'
+
     }
-    qabulQilish();
+    else {
+        pp.style.color = 'green';
+        pp.textContent = 'Malumot yuborildi'
+        oqish();
+    }
 }
-function idTopish(mall){
-   if(!mall.length){
-    return 1;
-   }else{
-    return mall[mall.length - 1].iD + 1;
-   }
+function belgilash(backend) {
+    if (!backend.length) {
+        return 1;
+    } else {
+        return backend[backend.length - 1].iD + 1;
+    }
 }
-function qabulQilish() {
-    mall.push(
+
+function oqish() {
+    backend.push(
         {
-            iD:idTopish(mall),
+            iD: belgilash(backend),
             ism: name.value,
             sana: date.value,
             baho: ball.value,
         }
-       
     )
-    localStorage.setItem('bir' , JSON.stringify(mall));
-    console.log(mall);
+    localStorage.setItem('son' , JSON.stringify(backend));
     korsatish();
+    
 }
-
-function ochirish(iD){
-    let ocr = mall.findIndex( function(topId){
-        return topId.id === iD;
-    })
-    mall.splice(ocr,1);
+function ochirish(iD) {
+    localStorage.setItem('son' , JSON.stringify(backend));
+    let ochr = backend.findIndex(function (izlash) {
+        return izlash.raqam === iD;
+    });
+    backend.splice(ochr,1);
     korsatish();
-}
 
+}
+(function(){
+    backend = JSON.parse(localStorage.getItem('son'))
+    korsatish();
+})();
 
 function korsatish() {
-    data.innerHTML = "";
-    mall.map(function (value, index) {
+    data.innerHTML = ' ';
+    backend.sort(function (a, b) { return (b.baho - a.baho) }).map(function (value, index) {
         data.innerHTML += `
         <td>${index + 1}</td>
         <td>${value.ism}</td>
         <td>${value.sana}</td>
         <td>${value.baho}</td>
         <td><i class='bx bxs-edit'></i></td>
-        <td><i onclick = ochirish(${value.id}) class='bx bxs-trash'></i></td>
+        <td><i  onclick = ochirish(${value.raqam}) class='bx bxs-trash'></i></td>
         `
-    })
+    });
     document.getElementById("name").value = "";
     document.getElementById("date").value = "";
     document.getElementById("ball").value = "";
