@@ -247,6 +247,7 @@ function ochirish(iD) {
         return izlash.raqam === iD;
     });
     backend.splice(ochr,1);
+    localStorage.setItem('son' , JSON.stringify(backend));
     korsatish();
 
 }
