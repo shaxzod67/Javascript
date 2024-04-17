@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+    <style>
+        #box {
+            width: 100%;
+            height: auto;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 20px;
+            box-sizing: border-box;
+            padding: 50px 20px;
+        }
+
+        .box2 {
+            width: 400px;
+            height: auto;
+            background-color: gray;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .box2 p:nth-child(1) {
+            color: red;
+            font-size: 25px;
+        }
+
+        .box2 p:nth-child(2) {
+            color: yellow;
+            font-size: 20px;
+            width: 80%;
+            height: 70px;
+
+        }
+
+        .box2 p:nth-child(3) {
+            color: black;
+            font-size: 20px;
+            width: 80%;
+            height: 40px;
+        }
+
+        .box2 p:nth-child(4) {
+            color: black;
+            font-size: 14px;
+            width: 80%;
+            height: 110px;
+        }
+
+        .box2 img {
+            width: 40%;
+            height: 200px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btnp">
+        Products
+    </button>
+    <button id="btnc">
+        Cards
+    </button>
+    <div id="box">
+
+    </div>
+
+    <script>
+        let box = document.getElementById('box');
+        let btnp = document.getElementById('btnp');
+        let btnc = document.getElementById('btnc');
+        function products() {
+            fetch('https://fakestoreapi.com/products')
+                .then(baza => baza.json())
+                .then(baza => {
+                    baza.map(function (obj) {
+                        box.innerHTML += `
+             <div class="box2">
+                <p>${obj.id}</p>
+                <p>${obj.title}</p>
+                <p>${obj.price}</p>
+                <p>${obj.description}</p>
+                <p>${obj.category}</p>
+                <img src="${obj.image}" alt="">
+            </div>
+             `
+                    })
+                }
+
+                )
+        }
+        btnp.onclick = products
+
+        function cards() {
+            // box = ' '
+            fetch('https://fakestoreapi.com/carts')
+                .then(mall => mall.json())
+                .then(mall => {
+                    mall.map(function (mal) {
+                        box.innerHTML += `
+                        <div class = "box2">
+                        <p>${mal.id}</p>
+                        <p>${mal.userId}</p>
+                        <p>${mal.date}</p>
+                        <p>${mal.products.map(function (objc) {
+                            return `
+                        <p>${objc.productId}</p>
+                        <p>${objc.quantity}</p>
+                            
+                            `
+                        })}</p>
+                        </div>
+                    `
+                    })
+                })
+        }
+        btnc.onclick = cards
+
+
+    </script>
+</body>
+
+</html>
