@@ -107,13 +107,13 @@
                         <p>${mal.id}</p>
                         <p>${mal.userId}</p>
                         <p>${mal.date}</p>
-                        <p>${mal.products.map(function (objc) {
+                        <div>${mal.products.map(function (objc) {
                             return `
                         <p>${objc.productId}</p>
                         <p>${objc.quantity}</p>
                             
                             `
-                        })}</p>
+                        })}</div>
                         </div>
                     `
                     })
