@@ -203,6 +203,14 @@ let btn = document.querySelector('#btn');
 let data = document.querySelector('#data');
 
 
+// ========= editModal =======
+let editModal = document.querySelector('#editModal');
+let modal__content = document.querySelector('.modal__content');
+let closeModal = document.querySelector('.modal__close');
+let edit__todo__form = document.querySelector('.edit__todo__form');
+let editInput = document.querySelector('#editInput');
+let button__edit__todo = document.querySelector('.button__edit__todo');
+
 let backend = [];
 form.addEventListener('submit', function (qaytarish) {
     qaytarish.preventDefault();
@@ -220,6 +228,57 @@ function tekshirish() {
         oqish();
     }
 }
+
+
+//================  edit start   ===============
+editInput.addEventListener('submit', function (event) {
+    event.preventDefault();
+    const todoId = editInput.dataset.todoId;
+    if (editInput.value == "") {
+        pp.innerHTML = "xato"
+        return;
+    } else {
+        pp.innerHTML = 'ishladi'
+        updateEditData(editInput.value, todoId);
+    }
+});
+function updateEditData(editInp, raqam) {
+    let todoIndex = data.findIndex(function (todoId){
+        return todoId.raqam === raqam;
+    });
+
+    data[todoIndex].name = editInp;
+    localStorage.setItem('data' , JSON.stringify(data));
+    korsatish();
+    hideModal();
+
+}
+function showModal(name,todoId){
+    editModal.style.display = "flex";
+    editInput.value = name;
+    editInput.dataset.todoId = todoId;
+    console.log('hello');
+}
+
+function hideModal(){
+    editInput.style.display = "none";
+}
+
+closeModal.addEventListener('click' , function(){
+    hideModal();
+})
+function editData(raqam){
+    let idx = data.find(function(id2){
+        return id2.raqam === raqam;
+    });
+    showModal(idx.name , raqam)
+}
+
+
+
+
+
+//================  edit end   =================
 function belgilash(backend) {
     if (!backend.length) {
         return 1;
@@ -237,21 +296,21 @@ function oqish() {
             baho: ball.value,
         }
     )
-    localStorage.setItem('son' , JSON.stringify(backend));
-    korsatish();
-    
-}
-function ochirish(iD) {
-    localStorage.setItem('son' , JSON.stringify(backend));
-    let ochr = backend.findIndex(function (izlash) {
-        return izlash.raqam === iD;
-    });
-    backend.splice(ochr,1);
-    localStorage.setItem('son' , JSON.stringify(backend));
+    localStorage.setItem('son', JSON.stringify(backend));
     korsatish();
 
 }
-(function(){
+function ochirish(iD) {
+    localStorage.setItem('son', JSON.stringify(backend));
+    let ochr = backend.findIndex(function (izlash) {
+        return izlash.raqam === iD;
+    });
+    backend.splice(ochr, 1);
+    localStorage.setItem('son', JSON.stringify(backend));
+    korsatish();
+
+}
+(function () {
     backend = JSON.parse(localStorage.getItem('son'))
     korsatish();
 })();
@@ -264,7 +323,7 @@ function korsatish() {
         <td>${value.ism}</td>
         <td>${value.sana}</td>
         <td>${value.baho}</td>
-        <td><i class='bx bxs-edit'></i></td>
+        <td><i onclick = showModal(${value.raqam}) class='bx bxs-edit'></i></td>
         <td><i  onclick = ochirish(${value.raqam}) class='bx bxs-trash'></i></td>
         `
     });
